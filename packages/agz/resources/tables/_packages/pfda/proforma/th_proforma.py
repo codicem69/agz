@@ -24,7 +24,7 @@ class Form(BaseComponent):
             btn_proforma.dataRpc('nome_temp', self.print_template,record='=#FORM.record', email_template_id=None,
                             nome_template = 'pfda.proforma:proforma',format_page='A4')
             #prendiamo l'account email con cui inviamo le email da Staff
-            tbl_staff=self.db.table('shipsteps.staff')
+            tbl_staff=self.db.table('agz.staff')
             email_account_id = tbl_staff.readColumns(columns='$email_account_id',
                   where='$agency_id=:ag_id',
                     ag_id=self.db.currentEnv.get('current_agency_id'))
@@ -51,7 +51,7 @@ class Form(BaseComponent):
         template = self.loadTemplate(nome_template)  # nome del template
         pdfpath = self.site.storageNode('home:proforma', nome_file)
 
-        tbl_agency = self.db.table('shipsteps.agency')
+        tbl_agency = self.db.table('agz.agency')
         #tbl_template=self.db.table('adm.htmltemplate')
         letterhead = tbl_agency.readColumns(columns='$htmltemplate_id',
                   where='$id=:ag_id', ag_id=self.db.currentEnv.get('current_agency_id'))

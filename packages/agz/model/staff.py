@@ -5,7 +5,7 @@ class Table(object):
         self.sysFields(tbl)
 
         tbl.column('user_id',size='22', group='_', name_long='!![en]User'
-                    ).relation('adm.user.id', relation_name='staff', mode='foreignkey', onDelete='raise')
+                    ).relation('adm.user.id', relation_name='', mode='foreignkey', onDelete='raise')
         tbl.column('agency_id', size='22', name_long='!![en]Agency').relation('agency.id',
                         relation_name='user', mode='foreignkey', onDelete='raise')    
         tbl.column('name',name_long='!![en]Name')

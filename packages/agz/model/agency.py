@@ -30,15 +30,11 @@ class Table(object):
                     ).relation('email.account.id', relation_name='', mode='foreignkey', onDelete='raise')
         tbl.column('bank_details', name_short='!![en]Bank details')
         tbl.column('htmltemplate_id',size='22', name_long='!![en]Letterhead'
-                    ).relation('adm.htmltemplate.id', relation_name='carta_int', mode='foreignkey', onDelete='setNull')
+                    ).relation('adm.htmltemplate.id', relation_name='', mode='foreignkey', onDelete='setNull')
         tbl.column('agency_stamp', dtype='P', name_long='!![en]Agency Stamp')
-        #tbl.aliasColumn('fullname','@user.fullname', name_long='!![en]user signature')
-        
-        #tbl.aliasColumn('consignee','@email_services.consignee')
+       
         tbl.formulaColumn('fullstyle',"$agency_name || '<br>' || $address || '<br>' || 'tel. ' || $tel || '<br>' || coalesce('fax ' || $fax,'') || '<br>' || $email || '<br>' || $web ")
         
-        #tbl.aliasColumn('nameag','@agency_id_name.firma_div', name_long='!![en]name ag')                                         
-        #tbl.formulaColumn('dog_int', """CASE WHEN $service_fe = 'dogana' THEN $consignee ELSE NULL END""")
 
     def partitioning_pkeys(self):
         if self.db.currentEnv.get('current_agency_id'):
