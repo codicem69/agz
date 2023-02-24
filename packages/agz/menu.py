@@ -4,4 +4,5 @@ class Menu(object):
          agz = root.branch(u"agz", tags="")
          agz.thpage(u"!![en]Agencies", table="agz.agency", tags="")
          agz.thpage(u"!![en]Staff", table="agz.staff", tags="")
-         glbl = root.packageBranch("Glbl", pkg='glbl', tags="")
+         if not self.application.packages['unlocode']:
+            agz.packageBranch('Unlocode',pkg='unlocode')

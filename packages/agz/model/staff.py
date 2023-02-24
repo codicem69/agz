@@ -23,7 +23,7 @@ class Table(object):
         #                    || coalesce($note,'') """, name_long='!![en]Fullname')
         tbl.aliasColumn('username', '@user_id.username', name_long='!![en]Username')
        
-        tbl.formulaColumn('fullname',select=dict(table='shipsteps.staff',
+        tbl.formulaColumn('fullname',select=dict(table='agz.staff',
                                                 columns="""$name ||' '||$surname || '<br>' || coalesce($department ||' department <br>','') 
                             || coalesce('mob.: ' || $telephone || '<br>', '') || coalesce('email: ' || $email || '<br>' , '') 
                             || coalesce($note,'') """,

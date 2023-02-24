@@ -5,7 +5,7 @@
 		<gnrcore_sys pkgcode="gnrcore:sys"/>
 		<gnrcore_adm pkgcode="gnrcore:adm"/>
 		<gnrcore_email pkgcode="gnrcore:email"/>
-		<gnr_it_glbl pkgcode="gnr_it:glbl"/>
+		<unlocode pkgcode="unlocode:unlocode"/>
 		<agz pkgcode="agz"/>
 	</packages>
 	<authentication pkg="gnrcore:sys">

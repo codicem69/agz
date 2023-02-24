@@ -24,15 +24,15 @@ class Table(object):
         tbl.column('cap_residence',size='5',name_short='!![en]CAP res. city')
         tbl.column('residence_city',name_short='!![en]Residential city')
         tbl.column('virtual_stamp',name_short='!![en]Virtual stamp description')
-        tbl.column('port',size='22' ,group='_',name_long='!![en]Port').relation('glbl.comune.id',relation_name='agenzie',mode='foreignkey',onDelete='raise')
-        #tbl.column('port',size='22',name_short='!![en]Port').relation('unlocode.place.id',relation_name='portag_unlocode', mode='foreignkey', onDelete='raise')
+        #tbl.column('port',size='22' ,group='_',name_long='!![en]Port').relation('glbl.comune.id',relation_name='agenzie',mode='foreignkey',onDelete='raise')
+        tbl.column('port',size='22',name_short='!![en]Port').relation('unlocode.place.id',relation_name='portag_unlocode', mode='foreignkey', onDelete='raise')
         tbl.column('emailpec_account_id',size='22', name_long='!![en]Email pec account'
                     ).relation('email.account.id', relation_name='', mode='foreignkey', onDelete='raise')
         tbl.column('bank_details', name_short='!![en]Bank details')
         tbl.column('htmltemplate_id',size='22', name_long='!![en]Letterhead'
                     ).relation('adm.htmltemplate.id', relation_name='', mode='foreignkey', onDelete='setNull')
         tbl.column('agency_stamp', dtype='P', name_long='!![en]Agency Stamp')
-       
+        tbl.aliasColumn('fullname','@user.fullname', name_long='!![en]user signature')
         tbl.formulaColumn('fullstyle',"$agency_name || '<br>' || $address || '<br>' || 'tel. ' || $tel || '<br>' || coalesce('fax ' || $fax,'') || '<br>' || $email || '<br>' || $web ")
         
 

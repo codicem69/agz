@@ -77,7 +77,7 @@ class Form(BaseComponent):
         fb.simpleTextArea(lbl='Virtual stamp',value='^.virtual_stamp',editor=True, height='150px', width='150px' )
         fb.field('emailpec_account_id', hasDownArrow=True )
         fb.field('htmltemplate_id', hasDownArrow=True)
-        fb.field('port' ,colspan=2,auxColumns='$sigla_provincia', hasDownArrow=True)
+        fb.field('port' ,colspan=2)
         fb.br()
         right = bc.roundedGroup(region='right',title='!![en]Agency stamp',width='400px')
         #right = bc.roundedGroup(region='right',title='!![en]Agency stamp', width='20%', height='100%', margin='10px',margin_right='20px')
