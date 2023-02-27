@@ -77,7 +77,7 @@ class Form(BaseComponent):
         tbl_agency = self.db.table('agz.agency')
         #tbl_template=self.db.table('adm.htmltemplate')
         letterhead = tbl_agency.readColumns(columns='$htmltemplate_id',
-                  where='$id=:ag_id', ag_id=self.db.currentEnv.get('current_agency_id'))
+                  where='$id=:ag_id', ag_id=record['agency_id'])#self.db.currentEnv.get('current_agency_id'))
         # (pdfpath.internal_path)
         #print(x)
        #if kwargs:
