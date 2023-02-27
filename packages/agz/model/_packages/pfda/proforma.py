@@ -13,11 +13,11 @@ class Table(object):
                                                 columns='$notestandard',
                                                 where='$agency_id=#THIS.agency_id'),
                                                 dtype='T')
-        tbl.formulaColumn('stamp_ag',select=dict(table='shipsteps.agency',
+        tbl.formulaColumn('stamp_ag',select=dict(table='agz.agency',
                                                 columns='$agency_stamp',
                                                 where='$id=#THIS.agency_id and #THIS.timbro=true'),
                                                 dtype='P')
-        tbl.formulaColumn('bankdetails',select=dict(table='shipsteps.agency',
+        tbl.formulaColumn('bankdetails',select=dict(table='agz.agency',
                                                 columns='$bank_details',
                                                 where='$id=#THIS.agency_id'),
                                                 dtype='T')
