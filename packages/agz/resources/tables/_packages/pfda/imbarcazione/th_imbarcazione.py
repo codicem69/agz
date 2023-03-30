@@ -10,7 +10,7 @@ class View(BaseComponent):
         r = struct.view().rows()
         r.fieldcell('tipo')
         r.fieldcell('nome',width='20em')
-        r.fieldcell('bandiera')
+        r.fieldcell('flag', width='20em')
         r.fieldcell('loa')
         r.fieldcell('gt')
         r.fieldcell('nt')

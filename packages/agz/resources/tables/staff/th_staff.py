@@ -54,7 +54,7 @@ class Form(BaseComponent):
         right = bc.contentPane(region='right',title='Profile photo',width='200px', margin='10px')
      
         right.img(src='^.profile_photo', edit=True, crop_width='200px', crop_height='200px', 
-                        placeholder=True, upload_folder='site:image', upload_filename='=.id')
+                        placeholder=True, upload_folder='*')#upload_folder='site:image', upload_filename='=.id')
         #right.button('!![en]Remove image', hidden='^.profile_photo?=!#v').dataRpc(self.deleteImage, image='=.profile_photo')
 
     @public_method

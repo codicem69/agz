@@ -79,11 +79,11 @@ class Form(BaseComponent):
         fb.field('htmltemplate_id', hasDownArrow=True)
         fb.field('port' ,colspan=2)
         fb.br()
-        right = bc.roundedGroup(region='right',title='!![en]Agency stamp',width='400px')
+        right = bc.roundedGroup(region='right',title='!![en]Agency stamp',width='200px')
         #right = bc.roundedGroup(region='right',title='!![en]Agency stamp', width='20%', height='100%', margin='10px',margin_right='20px')
         #cp=right.contentPane()
         right.img(src='^.agency_stamp', edit=True, crop_width='100px', crop_height='100px', border='2px dotted silver',
-                        placeholder=True, upload_folder='site:image', upload_filename='=.id', width='100px', height='100px')
+                        placeholder=True,upload_folder='*') #upload_folder='site:image', upload_filename='=.id', width='100px', height='100px')
         #right.button('!![en]Remove image', hidden='^.agency_stamp?=!#v').dataRpc(self.deleteImage, image='=.agency_stamp')
 
    #def BolloVirtuale(self,frame):
