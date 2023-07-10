@@ -9,13 +9,12 @@ class LookupView(BaseComponent):
     def th_struct(self,struct):
         r = struct.view().rows()
         r.fieldcell('agency_id', edit=True, hasDownArrow=True)
-        r.fieldcell('garbageval')
-        r.fieldcell('garbageval')
-        r.fieldcell('retaingarbval')
-        r.fieldcell('ispsval')
-        r.fieldcell('miscval')
-        r.fieldcell('bulkval')
-        r.fieldcell('notemiscval')
+        r.fieldcell('garbageval', edit=True)
+        r.fieldcell('retaingarbval', edit=True)
+        r.fieldcell('ispsval', edit=True)
+        r.fieldcell('miscval', edit=True)
+        r.fieldcell('bulkval', edit=True)
+        r.fieldcell('notemiscval', edit=True)
 
     def th_order(self):
         return 'garbageval'
