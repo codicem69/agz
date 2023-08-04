@@ -38,23 +38,31 @@ class Form(BaseComponent):
 
     def staffDetails(self,bc):
         center= bc.contentPane(region='center',title='Staff details').div(margin='10px',margin_right='20px')
-        fb = center.formbuilder(cols=1, border_spacing='4px')     
-       
+        #fb = center.formbuilder(cols=1, border_spacing='4px')     
+        fb = center.formbuilder(cols=4, 
+                        border_spacing='4px',colswidth='auto',width='100%',fld_width='100%')
         fb.field('user_id' )
         fb.field('agency_id' )
+        fb.div()
+        fb.img(src='^.profile_photo', edit=True, crop_width='200px', crop_height='200px', 
+                        placeholder=True, upload_folder='*',rowspan=6)
         fb.field('name' )
         fb.field('surname' )
+        fb.br()
         fb.field('department' )
         fb.field('telephone' )
+        fb.br()
         fb.field('email' )
         fb.field('email_account_id', hasDownArrow=True )
+        fb.br()
         fb.field('note', width='30em' )
-       # fb.field('profile_photo' )
+       
         fb.field('is_active' )
-        right = bc.contentPane(region='right',title='Profile photo',width='200px', margin='10px')
+       #right = bc.contentPane(region='right',title='Profile photo',width='200px', margin='10px')
      
-        right.img(src='^.profile_photo', edit=True, crop_width='200px', crop_height='200px', 
-                        placeholder=True, upload_folder='*')#upload_folder='site:image', upload_filename='=.id')
+       #right.img(src='^.profile_photo', edit=True, crop_width='200px', crop_height='200px', 
+       #                placeholder=True, upload_folder='*')#upload_folder='site:image', upload_filename='=.id')
+        
         #right.button('!![en]Remove image', hidden='^.profile_photo?=!#v').dataRpc(self.deleteImage, image='=.profile_photo')
 
     @public_method
