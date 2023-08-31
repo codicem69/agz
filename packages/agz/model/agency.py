@@ -13,6 +13,9 @@ class Table(object):
         tbl.column('fax',name_short='!![en]fax')
         tbl.column('email',name_short='!![en]email')
         tbl.column('web',name_short='!![en]web')
+        tbl.column('vat', size=':13', name_short='!![en]VAT number',validate_len='13')
+        tbl.column('cf', name_short='!![en]Fiscal code')
+        tbl.column('sdi', size=':7', name_short='!![en]Unique code',validate_len='7')
         tbl.column('agent_name',name_short='!![en]Agent name')
         tbl.column('mobile_agent',name_short='!![en]Agent mobile')
         tbl.column('birthplace',name_short='!![en]Birth place')
@@ -34,6 +37,8 @@ class Table(object):
         tbl.column('agency_stamp', dtype='P', name_long='!![en]Agency Stamp')
         tbl.aliasColumn('fullname','@user.fullname', name_long='!![en]user signature')
         tbl.formulaColumn('fullstyle',"$agency_name || '<br>' || $address || '<br>' || 'tel. ' || $tel || '<br>' || coalesce('fax ' || $fax,'') || '<br>' || $email || '<br>' || $web ")
+        tbl.formulaColumn('fullstyle_vat',"""$agency_name || '<br>' || $address || '<br>' || 'VAT.no. / p.IVA: ' || $vat || '<br>' || 'Fiscal code / CF: ' || '<br>'
+                          || $cf || 'Unique code / Codice SDI: ' || $sdi || '<br>' """)
         
 
     def partitioning_pkeys(self):
