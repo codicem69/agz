@@ -29,3 +29,6 @@ class Table(object):
                             || coalesce($note,'') """,
                                                 where='$user_id =:env_user_id',
                                                 dtype='T',name_long='!![en]fullname'))
+
+    def defaultValues(self):
+        return dict(agency_id=self.db.currentEnv.get('current_agency_id'))

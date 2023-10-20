@@ -42,7 +42,7 @@ class Form(BaseComponent):
         fb = center.formbuilder(cols=4, 
                         border_spacing='4px',colswidth='auto',width='100%',fld_width='100%')
         fb.field('user_id' )
-        fb.field('agency_id' )
+        fb.field('agency_id', hasDownArrow=True )
         fb.div()
         fb.img(src='^.profile_photo', edit=True, crop_width='200px', crop_height='200px', 
                         placeholder=True, upload_folder='*',rowspan=6)
