@@ -4,7 +4,7 @@
 class Table(object):
     def config_db(self, pkg):
         tbl =  pkg.table('tariffe',partition_agency_id='agency_id')
-        tbl.column('agency_id',size='22', name_long='!![en]agency',batch_assign=True,plugToForm=True
+        tbl.column('agency_id',size='22', name_long='!![en]agency',batch_assign=dict(hasDownArrow=True),plugToForm=True
                     ).relation('agz.agency.id', relation_name='agency_tariffe', mode='foreignkey', onDelete='setNull')
 
     def defaultValues(self):
