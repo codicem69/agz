@@ -8,7 +8,7 @@ class View(BaseComponent):
 
     def th_struct(self,struct):
         r = struct.view().rows()
-        r.fieldcell('tipo')
+        #r.fieldcell('tipo')
         r.fieldcell('tip_imbarcazione_code')
         r.fieldcell('nome',width='20em')
         r.fieldcell('flag', width='20em')
