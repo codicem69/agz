@@ -43,16 +43,18 @@ class View(BaseComponent):
 
 
 class Form(BaseComponent):
+    py_requires="gnrcomponents/attachmanager/attachmanager:AttachManager"
 
     def th_form(self, form):
        # pane = form.record
        # fb = pane.formbuilder(cols=2, border_spacing='4px')
         bc = form.center.borderContainer()
         
-        self.DatiAgenzia(bc.borderContainer(region='top',datapath='.record',height='600px', splitter=True))
+        self.DatiAgenzia(bc.borderContainer(region='top',datapath='.record',height='500px', splitter=True))
        # tc = bc.tabContainer(margin='2px',region='center')
         #self.BolloVirtuale(tc.contentPane(title='Virtual Stamp description',datapath='.record'))
-        
+        self.agency_att(bc.contentPane(region='bottom',height='600px'))
+
     def DatiAgenzia(self,bc):
         center = bc.roundedGroup(region='center', title='Agency details').div(margin='10px',margin_right='20px')
         #center= bc.contentPane(region='center',title='Virtual stamp description').div(margin='10px',margin_right='20px')
@@ -95,9 +97,13 @@ class Form(BaseComponent):
 
    #def BolloVirtuale(self,frame):
    #    frame.simpleTextArea(title='Virtual stamp',value='^.virtual_stamp',editor=True)
+    def agency_att(self,bc):
+        fb = bc.formbuilder(cols=1, border_spacing='4px',margin='4px',region='center', height='100%')
+        fb.div('ciao')
+        #pane.attachmentGrid(viewResource='View')  
 
     def th_options(self):
-        return dict(dialog_height='400px', dialog_width='600px' )
+        return dict(dialog_height='400px', dialog_width='600px', annotations=True)
 
     #@public_method
     #def deleteImage(self, image=None, **kwargs):

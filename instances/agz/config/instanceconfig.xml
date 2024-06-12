@@ -5,6 +5,11 @@
 		<gnrcore_sys pkgcode="gnrcore:sys"/>
 		<gnrcore_adm pkgcode="gnrcore:adm"/>
 		<gnrcore_email pkgcode="gnrcore:email"/>
+		<gnrcore_orgn pkgcode="gnrcore:orgn">
+			<entities>
+				<agency tbl='agz.agency' caption='agency'/>
+			</entities>
+		</gnrcore_orgn>
 		<unlocode pkgcode="unlocode:unlocode"/>
 		<agz pkgcode="agz"/>
 	</packages>

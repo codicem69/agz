@@ -1,119 +1,59 @@
-<?xml version="1.0" ?>
-<GenRoBag>
-	<menu path="menu.py" ext="py">
-		<en_agencies base="Agencies"/>
-		<en_staff base="Staff"/>
-	</menu>
-	<model>
-		<_packages>
-			<acc>
-				<fatt_emesse path="model/_packages/acc/fatt_emesse.py" ext="py">
-					<en_agency base="agency"/>
-				</fatt_emesse>
-				<fatture_forn path="model/_packages/acc/fatture_forn.py" ext="py">
-					<en_agency base="agency"/>
-				</fatture_forn>
-			</acc>
-			<pfda>
-				<fileforemail path="model/_packages/pfda/fileforemail.py" ext="py">
-					<en_agency base="agency"/>
-					<en_default_notes base="Default notes"/>
-				</fileforemail>
-				<proforma path="model/_packages/pfda/proforma.py" ext="py">
-					<en_agency base="agency"/>
-				</proforma>
-				<tariffe path="model/_packages/pfda/tariffe.py" ext="py">
-					<en_agency base="agency"/>
-				</tariffe>
-				<valorifissi path="model/_packages/pfda/valorifissi.py" ext="py">
-					<en_agency base="agency"/>
-				</valorifissi>
-			</pfda>
-			<shipsteps>
-				<arrival path="model/_packages/shipsteps/arrival.py" ext="py">
-					<en_agency base="Agency"/>
-				</arrival>
-				<beneficiario_tributi_cp path="model/_packages/shipsteps/beneficiario_tributi_cp.py" ext="py">
-					<en_agency base="Agency"/>
-				</beneficiario_tributi_cp>
-				<loghi path="model/_packages/shipsteps/loghi.py" ext="py">
-					<en_agency base="Agency"/>
-				</loghi>
-				<opening_gate path="model/_packages/shipsteps/opening_gate.py" ext="py">
-					<en_agency base="Agency"/>
-					<en_port base="Port"/>
-				</opening_gate>
-				<protocollo path="model/_packages/shipsteps/protocollo.py" ext="py">
-					<en_agency base="Agency"/>
-				</protocollo>
-			</shipsteps>
-		</_packages>
-		<agency path="model/agency.py" ext="py">
-			<en_agency base="Agency"/>
-			<en_agencies base="Agencies"/>
-			<en_agency_name base="Agency Name"/>
-			<en_description_agency base="Description Agency"/>
-			<en_address base="address" it="Indirizzo"/>
-			<en_telephone base="telephone"/>
-			<en_fax base="fax"/>
-			<en_email fr="Email" de="E-Mail-" en="Email" it="Email" base="email"/>
-			<en_web base="web"/>
-			<en_agent_name base="Agent name"/>
-			<en_agent_mobile base="Agent mobile"/>
-			<en_birth_place base="Birth place"/>
-			<en_birth_date base="Birth date"/>
-			<en_place_cciaa base="Place CCIAA"/>
-			<en_c_f_agent base="C.F. agent"/>
-			<en_residential_address base="Residential address"/>
-			<en_cap_res_city base="CAP res. city"/>
-			<en_residential_city base="Residential city"/>
-			<en_virtual_stamp_description base="Virtual stamp description"/>
-			<en_port base="Port"/>
-			<en_email_pec_account base="Email pec account"/>
-			<en_bank_details base="Bank details" it="Dettagli Bancari"/>
-			<en_letterhead fr="Tête" de="Briefkopf" en="Letterhead" it="Carta intestata" base="Letterhead"/>
-			<en_agency_stamp base="Agency Stamp"/>
-			<en_user_signature base="user signature"/>
-		</agency>
-		<staff path="model/staff.py" ext="py">
-			<en_staff base="Staff"/>
-			<en_user fr="Utilisateur" de="Benutzer" en="User" it="Utente" base="User"/>
-			<en_agency base="Agency"/>
-			<en_name fr="Nom" de="Name" en="Name" it="Nome" base="Name"/>
-			<en_surname base="Surname"/>
-			<en_telephone base="Telephone"/>
-			<en_e_mail base="E-mail"/>
-			<en_profile_photo base="Profile photo"/>
-			<en_is_active base="Is active"/>
-			<en_email_account base="Email account"/>
-			<en_fullname base="Fullname"/>
-			<en_username fr="Nom d'utilisateur" de="Benutzername" en="Username" it="Nome utente" base="Username"/>
-		</staff>
-	</model>
-	<resources>
-		<tables>
-			<_packages>
-				<pfda>
-					<fileforemail>
-						<th_fileforemail path="resources/tables/_packages/pfda/fileforemail/th_fileforemail.py" ext="py">
-							<en_remove_file base="Remove file"/>
-							<en_default_notes base="Default notes"/>
-						</th_fileforemail>
-					</fileforemail>
-				</pfda>
-			</_packages>
-			<agency>
-				<th_agency path="resources/tables/agency/th_agency.py" ext="py">
-					<en_bank_details base="Bank details" it="Dettagli Bancari"/>
-					<en_agency_stamp base="Agency stamp"/>
-					<en_remove_image base="Remove image"/>
-				</th_agency>
-			</agency>
-			<staff>
-				<th_staff path="resources/tables/staff/th_staff.py" ext="py">
-					<en_remove_image base="Remove image"/>
-				</th_staff>
-			</staff>
-		</tables>
-	</resources>
-</GenRoBag>
+<?xml version='1.0' encoding='UTF-8'?>
+<GenRoBag><menu path="menu.py" ext="py"><en_agencies base="Agencies"></en_agencies>
+<en_staff base="Staff"></en_staff></menu>
+<model><_packages><acc><fatt_emesse path="model/_packages/acc/fatt_emesse.py" ext="py"><en_agency base="agency"></en_agency></fatt_emesse>
+<fatture_forn path="model/_packages/acc/fatture_forn.py" ext="py"><en_agency base="agency"></en_agency></fatture_forn></acc>
+<pfda><fileforemail path="model/_packages/pfda/fileforemail.py" ext="py"><en_agency base="agency"></en_agency>
+<en_default_notes base="Default notes"></en_default_notes></fileforemail>
+<proforma path="model/_packages/pfda/proforma.py" ext="py"><en_agency base="agency"></en_agency></proforma>
+<tariffe path="model/_packages/pfda/tariffe.py" ext="py"><en_agency base="agency"></en_agency></tariffe>
+<valorifissi path="model/_packages/pfda/valorifissi.py" ext="py"><en_agency base="agency"></en_agency></valorifissi></pfda>
+<shipsteps><arrival path="model/_packages/shipsteps/arrival.py" ext="py"><en_agency base="Agency"></en_agency></arrival>
+<beneficiario_tributi_cp path="model/_packages/shipsteps/beneficiario_tributi_cp.py" ext="py"><en_agency base="Agency"></en_agency></beneficiario_tributi_cp>
+<loghi path="model/_packages/shipsteps/loghi.py" ext="py"><en_agency base="Agency"></en_agency></loghi>
+<opening_gate path="model/_packages/shipsteps/opening_gate.py" ext="py"><en_agency base="Agency"></en_agency>
+<en_port base="Port"></en_port></opening_gate>
+<protocollo path="model/_packages/shipsteps/protocollo.py" ext="py"><en_agency base="Agency"></en_agency></protocollo></shipsteps></_packages>
+<agency path="model/agency.py" ext="py"><en_agency base="Agency"></en_agency>
+<en_agencies base="Agencies"></en_agencies>
+<en_agency_name base="Agency Name"></en_agency_name>
+<en_description_agency base="Description Agency"></en_description_agency>
+<en_address base="address" it="Indirizzo"></en_address>
+<en_telephone base="telephone"></en_telephone>
+<en_fax base="fax"></en_fax>
+<en_email fr="Email" de="E-Mail-" en="Email" it="Email" base="email"></en_email>
+<en_web base="web"></en_web>
+<en_agent_name base="Agent name"></en_agent_name>
+<en_agent_mobile base="Agent mobile"></en_agent_mobile>
+<en_birth_place base="Birth place"></en_birth_place>
+<en_birth_date base="Birth date"></en_birth_date>
+<en_place_cciaa base="Place CCIAA"></en_place_cciaa>
+<en_c_f_agent base="C.F. agent"></en_c_f_agent>
+<en_residential_address base="Residential address"></en_residential_address>
+<en_cap_res_city base="CAP res. city"></en_cap_res_city>
+<en_residential_city base="Residential city"></en_residential_city>
+<en_virtual_stamp_description base="Virtual stamp description"></en_virtual_stamp_description>
+<en_port base="Port"></en_port>
+<en_email_pec_account base="Email pec account"></en_email_pec_account>
+<en_bank_details base="Bank details" it="Dettagli Bancari"></en_bank_details>
+<en_letterhead fr="Tête" de="Briefkopf" en="Letterhead" it="Carta intestata" base="Letterhead"></en_letterhead>
+<en_agency_stamp base="Agency Stamp" it="Timbro agenzia"></en_agency_stamp>
+<en_user_signature base="user signature"></en_user_signature></agency>
+<staff path="model/staff.py" ext="py"><en_staff base="Staff"></en_staff>
+<en_user fr="Utilisateur" de="Benutzer" en="User" it="Utente" base="User"></en_user>
+<en_agency base="Agency"></en_agency>
+<en_name fr="Nom" de="Name" en="Name" it="Nome" base="Name"></en_name>
+<en_surname base="Surname"></en_surname>
+<en_telephone base="Telephone"></en_telephone>
+<en_e_mail base="E-mail"></en_e_mail>
+<en_profile_photo base="Profile photo"></en_profile_photo>
+<en_is_active base="Is active"></en_is_active>
+<en_email_account base="Email account"></en_email_account>
+<en_fullname base="Fullname"></en_fullname>
+<en_username fr="Nom d'utilisateur" de="Benutzername" en="Username" it="Nome utente" base="Username"></en_username></staff></model>
+<resources><tables><_packages><pfda><fileforemail><th_fileforemail path="resources/tables/_packages/pfda/fileforemail/th_fileforemail.py" ext="py"><en_remove_file base="Remove file"></en_remove_file>
+<en_default_notes base="Default notes"></en_default_notes></th_fileforemail></fileforemail></pfda></_packages>
+<agency><th_agency path="resources/tables/agency/th_agency.py" ext="py"><en_bank_details base="Bank details" it="Dettagli Bancari"></en_bank_details>
+<en_agency_stamp base="Agency stamp" it="Timbro agenzia"></en_agency_stamp>
+<en_remove_image base="Remove image"></en_remove_image></th_agency></agency>
+<staff><th_staff path="resources/tables/staff/th_staff.py" ext="py"><en_remove_image base="Remove image"></en_remove_image></th_staff></staff></tables></resources></GenRoBag>
