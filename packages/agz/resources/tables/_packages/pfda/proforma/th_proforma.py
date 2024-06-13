@@ -18,7 +18,7 @@ class Form(BaseComponent):
 
     def th_bottom_custom(self, bottom):
 
-            bar = bottom.slotBar('10,stampa_proforma,5,crea_email,*,10')
+            bar = bottom.slotBar('*,stampa_proforma,5,crea_email,*,10')
             bar.stampa_proforma.button('Stampa Proforma', iconClass='print',
                                         action="""genro.publish("table_script_run",{table:"pfda.proforma",
                                                                                    res_type:'print',
