@@ -53,7 +53,7 @@ class Form(BaseComponent):
         self.DatiAgenzia(bc.borderContainer(region='top',datapath='.record',height='500px', splitter=True))
        # tc = bc.tabContainer(margin='2px',region='center')
         #self.BolloVirtuale(tc.contentPane(title='Virtual Stamp description',datapath='.record'))
-        self.agency_att(bc.contentPane(region='bottom',height='600px'))
+       # self.agency_att(bc.contentPane(region='bottom',height='600px'))
 
     def DatiAgenzia(self,bc):
         center = bc.roundedGroup(region='center', title='Agency details').div(margin='10px',margin_right='20px')
