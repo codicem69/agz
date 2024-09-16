@@ -50,7 +50,7 @@ class Form(BaseComponent):
        # fb = pane.formbuilder(cols=2, border_spacing='4px')
         bc = form.center.borderContainer()
         
-        self.DatiAgenzia(bc.borderContainer(region='top',datapath='.record',height='500px', splitter=True))
+        self.DatiAgenzia(bc.borderContainer(region='top',datapath='.record',height='550px', splitter=True))
        # tc = bc.tabContainer(margin='2px',region='center')
         #self.BolloVirtuale(tc.contentPane(title='Virtual Stamp description',datapath='.record'))
        # self.agency_att(bc.contentPane(region='bottom',height='600px'))
@@ -83,7 +83,7 @@ class Form(BaseComponent):
         fb.field('cap_residence' )
         fb.field('residence_city' )
         fb.simpleTextArea(lbl='!![en]Bank details',value='^.bank_details',editor=True, height='150px', width='150px' )
-        fb.simpleTextArea(lbl='Virtual stamp',value='^.virtual_stamp',editor=True, height='150px', width='150px' )
+        fb.simpleTextArea(lbl='Virtual stamp',value='^.virtual_stamp', height='150px', width='100%' )
         fb.field('emailpec_account_id', hasDownArrow=True )
         fb.field('htmltemplate_id', hasDownArrow=True)
         fb.field('port' ,colspan=2)
