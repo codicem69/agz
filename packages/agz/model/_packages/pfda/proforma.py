@@ -36,6 +36,7 @@ class Table(object):
     def counter_protocollo(self,record=None):
         tbl_agency = self.db.table('agz.agency')
         codice = tbl_agency.readColumns(columns='$code', where = '$id =:ag_id', ag_id=record['agency_id'])
+        #codice = tbl_agency.readColumns(columns='$code', where = '$id =:ag_id', ag_id=self.db._get_currentEnv()['current_agency_id'])
         #F14/000001
         if len(codice) == 1:
             code = 'PFDA__'+str(codice)

@@ -26,9 +26,22 @@ class View(BaseComponent):
 class Form(BaseComponent):
 
     def th_form(self, form):
-        pane = form.record
+        bc = form.center.borderContainer()
+        self.datiImbarcazione(bc.roundedGroupFrame(title='Dati Imbarcazione',region='top',datapath='.record',height='185px', splitter=True))
+        tc = bc.tabContainer(region = 'center',margin='2px')
+        self.proformaImbarcazione(tc.contentPane(title='Proforma'))
+        #pane = form.record
+        #fb = pane.formbuilder(cols=2, border_spacing='4px')
+        #fb.field('tip_imbarcazione_code' )
+        #fb.field('nome' )
+        #fb.field('flag',columns='$nome,$code',auxColumns='$nome', limit=20 )
+        #fb.field('loa',validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg: 10 or 10,50' )
+        #fb.field('gt',validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg:1200 or 1200,00' )
+        #fb.field('nt' ,validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg:650 or 650,00')
+
+    def datiImbarcazione(self,pane):
+        fb = pane.div(margin_left='50px',margin_right='80px').formbuilder(cols=1, border_spacing='4px',colswidth='auto',fld_width='100%')
         fb = pane.formbuilder(cols=2, border_spacing='4px')
-        #fb.field('tipo' )
         fb.field('tip_imbarcazione_code' )
         fb.field('nome' )
         fb.field('flag',columns='$nome,$code',auxColumns='$nome', limit=20 )
@@ -37,8 +50,10 @@ class Form(BaseComponent):
         fb.field('gt',validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg:1200 or 1200,00' )
         fb.field('nt' ,validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg:650 or 650,00')
         fb.dataRpc('', self.ricercaImo, imo='=.imo',_fired='^#FORM.imo', _onResult="""if(result!=null) {alert(result);}""")
-        #fb.dataRpc('', self.ricercaImo, imo='=.imo',_fired='^#FORM.controller.changed', _onResult="""if(result!=null) {alert(result);}""")
-        #fb.dataController("""if(msgspec==imo_nave) genro.publish("floating_message",{message:msg_txt, messageType:"message"});""",msgspec='^.imo',imo_nave='^imo_nave', msg_txt = 'Already existing name')
+
+    def proformaImbarcazione(self,pane):
+        pane.dialogTableHandler(relation='@proforma_imb',
+                                viewResource='ViewProforma')
 
 
     @public_method
