@@ -46,15 +46,23 @@ class Form(BaseComponent):
         fb.field('nome' )
         fb.field('flag',columns='$nome,$code',auxColumns='$nome', limit=20 )
         fb.field('imo',validate_onAccept='FIRE #FORM.imo' )
-        fb.field('loa',validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg: 10 or 10,50' )
+        #fb.field('loa',validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg: 10 or 10,50' )
+        fb.field('loa', placeholder='eg: 10 or 10,50',validate_onAccept='FIRE #FORM.loa' )
         fb.field('gt',validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg:1200 or 1200,00' )
         fb.field('nt' ,validate_regex=" ^[0-9,]*$",validate_regex_error='Insert only numbers and comma', placeholder='eg:650 or 650,00')
         fb.dataRpc('', self.ricercaImo, imo='=.imo',_fired='^#FORM.imo', _onResult="""if(result!=null) {alert(result);}""")
+        fb.dataRpc('', self.loa, loa='=.loa',_fired='^#FORM.loa', _onResult="""if(result!=null) {SET .loa = result;}""")
 
     def proformaImbarcazione(self,pane):
         pane.dialogTableHandler(relation='@proforma_imb',
                                 viewResource='ViewProforma')
 
+    @public_method
+    def loa(self,loa):
+        if loa:
+            if loa.find('.')>=0:
+                loa=loa.replace('.',',')
+                return loa
 
     @public_method
     def ricercaImo(self,imo):
