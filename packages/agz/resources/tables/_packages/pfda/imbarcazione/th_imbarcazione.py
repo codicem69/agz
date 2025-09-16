@@ -59,6 +59,7 @@ class Form(BaseComponent):
 
     @public_method
     def loa(self,loa):
+        print(x)
         if loa:
             if loa.find('.')>=0:
                 loa=loa.replace('.',',')
@@ -68,8 +69,13 @@ class Form(BaseComponent):
     def ricercaImo(self,imo):
         tbl_imbarcazioni = self.db.table('pfda.imbarcazione')
         imo_nave = tbl_imbarcazioni.readColumns(columns="""$imo AS imo_nave""", where='$imo=:imo', imo=imo)
+        nomi_navi = tbl_imbarcazioni.query(columns="$nome", where='$imo = :imo', imo=imo).selection().output('list')
+        navi=[]
+        for r in nomi_navi:
+            navi.append(r[0])
+
         if imo_nave is not None:
-            result = 'Already existing IMO. Please check before Save'
+            result = 'Already existing IMO with the following vessels: \n'+ str(navi) +'\nPlease check before Save'
             return result
 
     def th_options(self):
