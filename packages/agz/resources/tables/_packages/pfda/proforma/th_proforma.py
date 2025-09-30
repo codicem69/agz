@@ -3,6 +3,7 @@
 
 from gnr.web.gnrbaseclasses import BaseComponent
 from gnr.core.gnrdecorator import public_method
+from gnr.core.gnrdecorator import metadata
 from gnr.core.gnrnumber import decimalRound
 from gnr.core.gnrbag import Bag
 from gnr.web.gnrbaseclasses import TableTemplateToHtml
@@ -14,6 +15,29 @@ class ViewProforma(BaseComponent):
     def th_options(self):
         return dict(partitioned=True)
 
+    @metadata(multivalue=True)
+    def th_sections_anno(self):
+        result = [dict(code='tutti',caption='!![it]Tutti')]
+        tbl_pfda=self.db.table('pfda.proforma')
+        anno=tbl_pfda.query(columns="""to_char($data, 'YYYY')""",group_by="""to_char($data, 'YYYY')""",where='agency_id=:ag_id',
+                           ag_id=self.db.currentEnv.get('current_agency_id'),order_by="""to_char($data, 'YYYY')""").fetch()
+        
+        for c in anno:
+            if c[0] is not None:
+                result.append(dict(code=c[0],caption=c[0],
+                            condition="$anno = :anno",
+                            condition_anno=c[0]))
+        return result
+    
+    def th_top_toolbarsuperiore(self,top):
+        top.slotToolbar('10,sections@anno,5,sections@cliente_id,5,sections@imbarcazione_id,*',
+                        childname='superiore',_position='<bar',gradient_from='#999',gradient_to='#666',
+                        sections_anno_multiButton=8,
+                        sections_anno_lbl='!![en]Year',sections_anno_lbl_color='white',
+                        sections_cliente_id_multivalue=False,sections_cliente_id_multiButton=False,
+                        sections_imbarcazione_id_multivalue=False,sections_imbarcazione_id_multiButton=False)#,
+                        #sections_anno_width='6em')
+        
 class Form(BaseComponent):
 
     def th_bottom_custom(self, bottom):

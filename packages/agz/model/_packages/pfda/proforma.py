@@ -23,7 +23,8 @@ class Table(object):
                                                 dtype='T')
         tbl.formulaColumn('bank_dt',":bd || @agency_id.bank_details",
                                                 where='@agency_id.id=#THIS.agency_id',dtype='T', var_bd="Our bank details: <br>")
-
+        tbl.formulaColumn('anno',"""to_char($data, :df)""", var_df='YYYY')
+        
     def defaultValues(self):
         #prendiamo i valori fissi da inserire di default nel proforma
         tbl_valorifissi = self.db.table('pfda.valorifissi')
