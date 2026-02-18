@@ -3,7 +3,7 @@
 
 class Table(object):
     def config_db(self,pkg):
-        tbl =  pkg.table('agency',pkey='id',name_long='!![en]Agency',name_plural='!![en]Agencies',caption_field='agency_name',lookup=False)
+        tbl =  pkg.table('agency',pkey='id',name_long='!![en]Agency',name_plural='!![en]Agencies',caption_field='caption_name',lookup=False)
         self.sysFields(tbl)
         tbl.column('code', size=':2', name_short='code',validate_notnull=True)
         tbl.column('agency_name',name_short='!![en]Agency Name')
@@ -42,7 +42,7 @@ class Table(object):
         tbl.formulaColumn('fullstyle',"$agency_name || '<br>' || $address || '<br>' || 'tel. ' || $tel || '<br>' || coalesce('fax ' || $fax,'') || '<br>' || $email || '<br>' || $web ")
         tbl.formulaColumn('fullstyle_vat',"""$agency_name || '<br>' || $address || '<br>' || 'VAT.no. / p.IVA: ' || $vat || '<br>' || 'Fiscal code / CF: ' || '<br>'
                           || $cf || 'Unique code / Codice SDI: ' || $sdi || '<br>' """)
-        
+        tbl.formulaColumn('caption_name',"$agency_name || ' - ' || @port.descrizione")
 
     def partitioning_pkeys(self):
         if self.db.currentEnv.get('current_agency_id'):
