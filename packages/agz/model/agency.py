@@ -32,6 +32,9 @@ class Table(object):
         tbl.column('emailpec_account_id',size='22', name_long='!![en]Email pec account'
                     ).relation('email.account.id', relation_name='', mode='foreignkey', onDelete='raise')
         tbl.column('bank_details', name_short='!![en]Bank details')
+        tbl.column('bank', name_short='!![en]Bank')
+        tbl.column('iban', name_short='!![en]IBAN code')
+        tbl.column('bic', name_short='!![en]BIC code')
         tbl.column('htmltemplate_id',size='22', name_long='!![en]Letterhead'
                     ).relation('adm.htmltemplate.id', relation_name='', mode='foreignkey', onDelete='setNull')
         tbl.column('agency_stamp', dtype='P', name_long='!![en]Agency Stamp')
