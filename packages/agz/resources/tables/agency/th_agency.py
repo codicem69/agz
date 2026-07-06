@@ -43,7 +43,7 @@ class View(BaseComponent):
 
 
 class Form(BaseComponent):
-    py_requires="gnrcomponents/attachmanager/attachmanager:AttachManager"
+    #py_requires="gnrcomponents/attachmanager/attachmanager:AttachManager"
 
     def th_form(self, form):
        # pane = form.record
@@ -94,15 +94,15 @@ class Form(BaseComponent):
         right = bc.roundedGroup(region='right',title='!![en]Agency stamp',width='200px')
         #right = bc.roundedGroup(region='right',title='!![en]Agency stamp', width='20%', height='100%', margin='10px',margin_right='20px')
         #cp=right.contentPane()
-        right.img(src='^.agency_stamp', edit=True, crop_width='100px', crop_height='100px', border='2px dotted silver',margin_left='5px',
+        right.img(src='^.agency_stamp', edit=True, crop_width='200px', crop_height='200px', border='2px dotted silver',margin_left='5px',
                         placeholder=True,upload_folder='*') #upload_folder='site:image', upload_filename='=.id', width='100px', height='100px')
         #right.button('!![en]Remove image', hidden='^.agency_stamp?=!#v').dataRpc(self.deleteImage, image='=.agency_stamp')
 
    #def BolloVirtuale(self,frame):
    #    frame.simpleTextArea(title='Virtual stamp',value='^.virtual_stamp',editor=True)
-    def agency_att(self,bc):
-        fb = bc.formbuilder(cols=1, border_spacing='4px',margin='4px',region='center', height='100%')
-        fb.div('ciao')
+    #def agency_att(self,bc):
+    #    fb = bc.formbuilder(cols=1, border_spacing='4px',margin='4px',region='center', height='100%')
+    #    fb.div('ciao')
         #pane.attachmentGrid(viewResource='View')  
 
     def th_options(self):
