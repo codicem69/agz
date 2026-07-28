@@ -51,6 +51,7 @@ class Form(BaseComponent):
         bc = form.center.borderContainer()
         
         self.DatiAgenzia(bc.borderContainer(region='top',datapath='.record',height='550px', splitter=True))
+        self.datiLogo(bc.borderContainer(region='center',datapath='.record',height='550px',width='400px', splitter=True))
        # tc = bc.tabContainer(margin='2px',region='center')
         #self.BolloVirtuale(tc.contentPane(title='Virtual Stamp description',datapath='.record'))
        # self.agency_att(bc.contentPane(region='bottom',height='600px'))
@@ -104,7 +105,11 @@ class Form(BaseComponent):
     #    fb = bc.formbuilder(cols=1, border_spacing='4px',margin='4px',region='center', height='100%')
     #    fb.div('ciao')
         #pane.attachmentGrid(viewResource='View')  
+    def datiLogo(self,bc):
+        rg = bc.contentPane(region='center').roundedGroup(region='center',title='!![en]Agency logo',width='auto')
 
+        rg.img(src='^.agency_logo', edit=True, crop_width='200px', crop_height='100px', border='2px dotted silver',margin_left='5px',
+                        placeholder=True,upload_folder='*')
     def th_options(self):
         return dict(dialog_height='400px', dialog_width='600px', annotations=True)
 

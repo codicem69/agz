@@ -38,6 +38,7 @@ class Table(object):
         tbl.column('htmltemplate_id',size='22', name_long='!![en]Letterhead'
                     ).relation('adm.htmltemplate.id', relation_name='', mode='foreignkey', onDelete='setNull')
         tbl.column('agency_stamp', dtype='P', name_long='!![en]Agency Stamp')
+        tbl.column('agency_logo', dtype='P', name_long='!![en]Agency Logo')
         tbl.aliasColumn('fullname','@user.fullname', name_long='!![en]user signature')
         tbl.formulaColumn('fullstyle',"$agency_name || '<br>' || $address || '<br>' || 'tel. ' || $tel || '<br>' || coalesce('fax ' || $fax,'') || '<br>' || $email || '<br>' || $web ")
         tbl.formulaColumn('fullstyle_vat',"""$agency_name || '<br>' || $address || '<br>' || 'VAT.no. / p.IVA: ' || $vat || '<br>' || 'Fiscal code / CF: ' || '<br>'
