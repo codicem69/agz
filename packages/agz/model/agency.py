@@ -27,6 +27,7 @@ class Table(object):
         tbl.column('cap_residence',size='5',name_short='!![en]CAP res. city')
         tbl.column('residence_city',name_short='!![en]Residential city')
         tbl.column('virtual_stamp',name_short='!![en]Virtual stamp description')
+        tbl.column('prot_vs',name_short='!![en]Virtual stamp prot.no.')
         #tbl.column('port',size='22' ,group='_',name_long='!![en]Port').relation('glbl.comune.id',relation_name='agenzie',mode='foreignkey',onDelete='raise')
         tbl.column('port',size='22',name_short='!![en]Port').relation('unlocode.place.id',relation_name='portag_unlocode', mode='foreignkey', onDelete='raise')
         tbl.column('emailpec_account_id',size='22', name_long='!![en]Email pec account'
